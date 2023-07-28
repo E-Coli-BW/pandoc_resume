@@ -70,22 +70,6 @@ links:
 
 Technical Experience
 --------------------
-
-My Cool Side Project
-:   For items which don't have a clear time ordering, a definition
-    list can be used to have named items.
-
-    * These items can also contain lists, but you need to mind the
-      indentation levels in the markdown source.
-    * Second item.
-
-Open Source
-:   List open source contributions here, perhaps placing emphasis on
-    the project names, for example the **Linux Kernel**, where you
-    implemented multithreading over a long weekend, or **node.js**
-    (with [link](http://nodejs.org)) which was actually totally
-    your idea...
-
 Programming Languages
 :   **Java** Here, we have an itemization, where we only want
     to add descriptions to the first few items, but still want to
@@ -122,5 +106,5 @@ Extra Section, Call it Whatever You Want
 
 ----
 
-> <email@example.com> • +00 (0)00 000 0000 • XX years old\
-> address - Mytown, Mycountry
+> <lhs960115@126.com> • +86 185 1374 3437 • Linkedin: [https://www.linkedin.com/in/haosong-liu-512bb0126][Haosong Liu] Github: [https://github.com/E-Coli-BW][Haosong Liu]\
+> address - Beijing, China
