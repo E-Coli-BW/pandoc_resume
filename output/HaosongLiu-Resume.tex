@@ -1,0 +1,236 @@
+% Copyright 2013 Christophe-Marie Duquesne <chmd@chmd.fr>
+% Copyright 2014 Mark Szepieniec <http://github.com/mszep>
+% 
+% ConText style for making a resume with pandoc. Inspired by moderncv.
+% 
+% This CSS document is delivered to you under the CC BY-SA 3.0 License.
+% https://creativecommons.org/licenses/by-sa/3.0/deed.en_US
+
+\startmode[*mkii]
+  \enableregime[utf-8]  
+  \setupcolors[state=start]
+\stopmode
+
+\setupcolor[hex]
+\definecolor[titlegrey][h=757575]
+\definecolor[sectioncolor][h=397249]
+\definecolor[rulecolor][h=9cb770]
+
+% Enable hyperlinks
+\setupinteraction[state=start, color=sectioncolor]
+
+\setuppapersize [A4][A4]
+\setuplayout    [width=middle, height=middle,
+                 backspace=20mm, cutspace=0mm,
+                 topspace=10mm, bottomspace=20mm,
+                 header=0mm, footer=0mm]
+
+%\setuppagenumbering[location={footer,center}]
+
+\setupbodyfont[11pt, helvetica]
+
+\setupwhitespace[medium]
+
+\setupblackrules[width=31mm, color=rulecolor]
+
+\setuphead[chapter]      [style=\tfd]
+\setuphead[section]      [style=\tfd\bf, color=titlegrey, align=middle]
+\setuphead[subsection]   [style=\tfb\bf, color=sectioncolor, align=right,
+                          before={\leavevmode\blackrule\hspace}]
+\setuphead[subsubsection][style=\bf]
+
+\setuphead[chapter, section, subsection, subsubsection][number=no]
+
+%\setupdescriptions[width=10mm]
+
+\definedescription
+  [description]
+  [headstyle=bold, style=normal,
+   location=hanging, width=18mm, distance=14mm, margin=0cm]
+
+\setupitemize[autointro, packed]    % prevent orphan list intro
+\setupitemize[indentnext=no]
+
+\defineitemgroup[enumerate]
+\setupenumerate[each][fit][itemalign=left,distance=.5em,style={\feature[+][default:tnum]}]
+
+\setupfloat[figure][default={here,nonumber}]
+\setupfloat[table][default={here,nonumber}]
+
+\setuptables[textwidth=max, HL=none]
+\setupxtable[frame=off,option={stretch,width}]
+
+\setupthinrules[width=15em] % width of horizontal rules
+
+\setupdelimitedtext
+  [blockquote]
+  [before={\setupalign[middle]},
+   indentnext=no,
+  ]
+
+
+\starttext
+
+\section[title={Haosong Liu},reference={haosong-liu}]
+
+\thinrule
+
+\startblockquote
+Backend engineer with a focus on web application API development, was
+doing some distributed data processing, computational geometry and
+active fluid mechanics research while still in school.
+\stopblockquote
+
+\thinrule
+
+\subsection[title={Education},reference={education}]
+
+\startdescription{2018-2020}
+  {\bf Master of Science} Electrical and Computer Engineering;
+  {\bf University of Miami} (Coral Gables, FL)
+\stopdescription
+
+\startdescription{2016-2018}
+  {\bf Bachelor of Engineering} Material Science and Engineering;
+  {\bf University of Minnesota -- Twin} Cities (Minneapolis, MN)
+\stopdescription
+
+\startdescription{2014-2018}
+  {\bf Bachelor of Engineering} Material Science and Engineering;
+  {\bf Sichuan University} Cities (Chengdu, Sichuan, China)
+\stopdescription
+
+\subsection[title={Work Experience},reference={work-experience}]
+
+{\bf Backend Software Engineer@Longfor Inc \letterbar{} Beijing , China}
+
+Short text containing the type of work done, results obtained, lessons
+learned and other remarks. Can also include lists and links:
+
+\startitemize
+\item
+  Software Architecture Group
+
+  \startitemize
+  \item
+    \quotation{Hawkeye} Monitoring System: To provide better real-time
+    visibility and traceability of the production system, I developed a
+    \quotation{Hawkeye} monitoring system which collects API request
+    data via Prometheus and reports to the exporter periodically using
+    UDP, the data then being visualized on Grafana, metric data is
+    collected and transferred in a non-blocking asynchronous way using a
+    Single Thread Pool & Blocking Queue to improve performance while
+    still preserves the exact order of the metric data been sent;
+  \item
+    Distributed Universally Unique ID Generator: Implemented Snowflake
+    algorithm to generate Universally Unique ID (UUID) which provides a
+    secure and high-performance infrastructure tool for the dev teams to
+    generate UUIDs that satisfy the following properties: 1. Strictly
+    Monotonic increase; 2. Randomized ID generation.
+  \stopitemize
+\item
+  Unified Login Group
+
+  \startitemize
+  \item
+    To provide a unified log-in customer experience for the 40 million
+    Users and over 1 million active Daily Active Users (DAU) under the
+    Longfor franchise, we developed a unified member login and
+    management system, empowering tens of products and services across
+    the entire corporation;
+  \item
+    Innovatively used Redis to store user log-in sessions to eliminate
+    the need for a dedicated Central Authentication Server (CAS) while
+    still managed to solve the CORS problem in most Single Sign-on (SSO)
+    system.
+  \stopitemize
+\item
+  Ads Platform
+
+  \startitemize
+  \item
+    Involved in initial design of a simplified ads platform for internal
+    ads tenants including SSP, Ads Orchestration, Ads Recall, DSP
+    modules, for MVP version, Pacing, Ads Exchange and Ranking modules
+    are excluded;
+  \item
+    Independently implemented Ads Recall and Ads Document Generation
+    module.
+  \item
+    Advised and involved in cross-department project development,
+    promoted the integration of the ads platform into other systems;
+  \stopitemize
+\stopitemize
+
+{\bf Backend Software Engineer@WirelessCar \letterbar{} Beijing , China}
+
+Short text containing the type of work done, results obtained, lessons
+learned and other remarks. Can also include lists and links:
+
+\startitemize
+\item
+  VCC Solution
+
+  \startitemize[packed]
+  \item
+    Designed and implemented Emergency Call and Breakdown Call solutions
+    for integration towards Geely TSP and WirelessCar Internal services;
+  \stopitemize
+\stopitemize
+
+\subsection[title={Technical
+Experience},reference={technical-experience}]
+
+\startdescription{Programming Languages}
+  {\bf Java} Here, we have an itemization, where we only want to add
+  descriptions to the first few items, but still want to mention some
+  others together at the end. A format that works well here is a
+  description list where the first few items have their first word
+  emphasized, and the last item contains the final few emphasized terms.
+  Notice the reasonably nice page break in the pdf version, which
+  wouldn't happen if we generated the pdf via html.
+
+  {\bf Python} Description of your experience with second-lang, perhaps
+  again including a {[}link{]}
+  \useURL[url1][https://github.com/githubuser/superlongprojectname][][ref]\from[url1],
+  this time placing the url reference elsewhere in the document to
+  reduce clutter (see source file).
+
+  {\bf obscure-but-impressive-lang:} We both know this one's pushing it.
+
+  Basic knowledge of {\bf C}, {\bf x86 assembly}, {\bf forth},
+  {\bf Common Lisp}
+\stopdescription
+
+\subsection[title={Extra Section, Call it Whatever You
+Want},reference={extra-section-call-it-whatever-you-want}]
+
+\startitemize
+\item
+  Human Languages:
+
+  \startitemize[packed]
+  \item
+    English (native speaker)
+  \item
+    ???
+  \item
+    This is what a nested list looks like.
+  \stopitemize
+\item
+  Random tidbit
+\item
+  Other sort of impressive-sounding thing you did
+\stopitemize
+
+\thinrule
+
+\startblockquote
+\useURL[url2][mailto:lhs960115@126.com][][lhs960115@126.com]\from[url2]
+• +86 185 1374 3437 • Linkedin:
+\goto{https://www.linkedin.com/in/haosong-liu-512bb0126}[haosong-liu]
+Github: \goto{https://github.com/E-Coli-BW}[haosong-liu]\crlf
+address - Beijing, China
+\stopblockquote
+
+\stoptext
